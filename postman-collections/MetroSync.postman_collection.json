@@ -1,0 +1,563 @@
+{
+  "info": {
+    "_postman_id": "180d6a6f-7fa2-42e8-b9ef-fcc2b8946e75",
+    "name": "MetroSync",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56824417",
+    "_collection_link": "https://go.postman.co/collection/56824417-180d6a6f-7fa2-42e8-b9ef-fcc2b8946e75?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"quartzts@metrosync.com\",\r\n    \"password\": \"Souperstars!123\"\r\n    // Sorry, I can't save the response to this request, you'll have to click send to verify the token..\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/auth/login",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Announcements",
+      "item": [
+        {
+          "name": "Announcements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/v1/stations/sadat/announcements",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stations",
+                "sadat",
+                "announcements"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Announcements",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3000/api/v1/stations/sadat/announcements",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stations",
+                    "sadat",
+                    "announcements"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "200"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "171"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 02:50:07 GMT"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1788144824"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "257"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"101-uJJslVZLuL59r24yU7MlltvDxQo\""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"_id\": \"6a94ebad4318f7e583bf5838\",\n        \"text\": \"Welcome to Tilted Towers!\",\n        \"stationId\": \"sadat\",\n        \"createdAt\": \"2026-08-31T02:49:17.311Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6a94eb794318f7e583bf5835\",\n        \"text\": \"Welcome\",\n        \"stationId\": \"sadat\",\n        \"createdAt\": \"2026-08-31T02:48:25.256Z\",\n        \"__v\": 0\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Post Announcement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_secret_172z}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"text\": \"I'm the P.O.S.T.M.A.N, I've got da master plan.\"\r\n    // A token with an admin role is necessary, you gotta make a token with the POST /api/v1/auth/login and put it in the 'Authorization' tab\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/stations/sadat/announcements",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stations",
+                "sadat",
+                "announcements"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Post Announcement",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"text\": \"I'm the P.O.S.T.M.A.N, I've got da master plan.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3000/api/v1/stations/sadat/announcements",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stations",
+                    "sadat",
+                    "announcements"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "200"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "167"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 02:52:45 GMT"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1788144824"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "168"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a8-ThTOGj8IzYrj/5VTW1yvC3OJNUk\""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"text\": \"I&#x27;m the P.O.S.T.M.A.N, I&#x27;ve got da master plan.\",\n    \"stationId\": \"sadat\",\n    \"_id\": \"6a94ec7d4318f7e583bf5839\",\n    \"createdAt\": \"2026-08-31T02:52:45.197Z\",\n    \"__v\": 0\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stations",
+      "item": [
+        {
+          "name": "Stations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/v1/stations",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Stations",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3000/api/v1/stations",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "stations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "200"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "172"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 02:49:34 GMT"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1788144824"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1226"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4ca-9edTJ/kEm4JtJAbfC0H9gwZy8C0\""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"_id\": \"6a93a0c1833d910736f851c8\",\n        \"id\": \"helwan\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"Helwan\",\n        \"order\": 0,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851c9\",\n        \"id\": \"ain-helwan\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"Ain Helwan\",\n        \"order\": 1,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851ca\",\n        \"id\": \"hadayek-helwan\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"Hadayek Helwan\",\n        \"order\": 2,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851cb\",\n        \"id\": \"maadi\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"Maadi\",\n        \"order\": 10,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851cc\",\n        \"id\": \"sadat\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"Sadat\",\n        \"order\": 20,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851cd\",\n        \"id\": \"shohadaa\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"El-Shohadaa\",\n        \"order\": 25,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    },\n    {\n        \"_id\": \"6a93a0c1833d910736f851ce\",\n        \"id\": \"new-marg\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-08-30T03:17:21.068Z\",\n        \"line\": 1,\n        \"name\": \"New Marg\",\n        \"order\": 35,\n        \"updatedAt\": \"2026-08-30T03:17:21.068Z\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "API",
+      "item": [
+        {
+          "name": "Useless greeting message",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/v1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Useless greeting message",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3000/api/v1",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "200"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "182"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 02:46:44 GMT"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1788144824"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "27"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b-9gygK5/LqQVYC5mepy3wKWAhhY0\""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "We hope you enjoy the ride!"
+            }
+          ]
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/health",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Health",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3000/health",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "200"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "181"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 02:47:26 GMT"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1788144824"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "76"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4c-9sAgDK61NYh6wo3cBnGiXQYcB5E\""
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"Healthy and ready to zoom in!\",\n    \"anythingElse\": \"Nope, thank you!\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_secret_172z",
+      "secret": true
+    }
+  ]
+}
