@@ -20,7 +20,7 @@ npm install
 ```
 # How to run this
 This is hopefully as easy as running `npm run start` in the terminal (Or `npm run dev`). The next thing you can do is:
-- Run Postman with URL `localhost:"port number, this should appear in the terminal"` and test the routes and HTTP methods
+- Run Postman with URL `localhost:"port number, this should appear in the terminal"`, import the collection in the `postman-collections` folder and test the routes and HTTP methods
 - Check MongoDB Compass for changes in the database (or MongoDB shell if you have it and are able to use it)
 - Run `npm test` to test some stuff using Jest
 - Run `npm run plant-seed` to seed the station records (unless they already exist)

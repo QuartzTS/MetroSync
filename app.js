@@ -10,6 +10,8 @@ import errorHandler from "./middleware/errorMiddleware.js";
 // Now import our routes
 import authRouter from "./routes/authRoutes.js";
 import stationRouter from "./routes/stationRoutes.js";
+// Unfortunately this environment variable doesn't really serve a purpose, so let's give it one..
+import { NODE_ENV } from "./config/config.js";
 
 // Get current file and directory paths (needed for ES modules)
 const __filename = fileURLToPath(import.meta.url);
@@ -39,6 +41,7 @@ app.get("/api/v1", (req, res) => {
 app.get("/health", (req, res) => {
 	res.status(200).json({
 		status: "Healthy and ready to zoom in!",
+		environment: NODE_ENV,
 		anythingElse: "Nope, thank you!",
 	});
 });
